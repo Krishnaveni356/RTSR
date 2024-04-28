@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Analysis Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f3f3f3;
+        }
+        .jumbotron {
+            background-color: #3498db;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1>Text Analysis Result</h1>
+        <p>Enhance your text and speech analysis with OCR!</p>
+    </div>
+    <div class="alert alert-success">
+        <h3>Sentiment Analysis Result:</h3>
+        <p>Polarity: <span id="polarity">0.5</span></p>
+        <p>Subjectivity: {{ subjectivity }}</p>
+    </div>
+    <div class="alert alert-info">
+        <h3>Spam Classification Result:</h3>
+        <p id="spam_prediction">0</p>
+    </div>
+</div>
+
+<!-- Add JavaScript code to generate visualizations -->
+<script>
+    // Example: Modify sentiment polarity visualization
+    var polarity = parseFloat(document.getElementById('polarity').textContent);
+    var polarityText = document.getElementById('polarity');
+
+    if (polarity > 0.6) {
+        polarityText.textContent = polarity.toFixed(2) + " 😃"; // Positive sentiment emoji
+    } else if (polarity > 0.4) {
+        polarityText.textContent = polarity.toFixed(2) + " 😐"; // Neutral sentiment emoji
+    } else {
+        polarityText.textContent = polarity.toFixed(2) + " 😞"; // Negative sentiment emoji
+    }
+
+    // Example: Modify spam classification visualization
+    var spamPrediction = parseInt(document.getElementById('spam_prediction').textContent);
+    var spamPredictionText = document.getElementById('spam_prediction');
+
+    if (spamPrediction === 1) {
+        spamPredictionText.textContent = "Spam 🚫"; // Spam emoji
+    } else {
+        spamPredictionText.textContent = "Not Spam ✔️"; // Not spam emoji
+    }
+</script>
+</body>
+</html>

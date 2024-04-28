@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .result-info {
+            margin: 10px;
+            color: #333;
+        }
+        .result-value {
+            color: #007BFF;
+        }
+        .emojis {
+            font-size: 48px;
+        }
+        .histogram {
+            background-color: #eee;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 20px 0;
+            display: inline-block;
+        }
+        .bar {
+            background-color: #007BFF;
+            height: 30px;
+            margin: 2px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Analysis Result</h1>
+        <p class="result-info">Sentiment Polarity: <span class="result-value">{{ sentiment }}</span></p>
+        <p class="result-info">Sentiment Subjectivity: <span class="result-value">{{ subjectivity }}</span></p>
+        <div class="emojis">
+            {% if sentiment > 1 %}
+                😄 <!-- Display a smiling emoji for positive sentiment -->
+            {% elif sentiment < 1 %}
+                😞 <!-- Display a sad emoji for negative sentiment -->
+            {% else %}
+                😐 <!-- Display a neutral emoji for neutral sentiment -->
+            {% endif %}
+        </div>
+        <div class="histogram">
+            <div class="bar" style="width: {{ sentiment * 50 + 50 }}%;">{{ sentiment }}</div>
+        </div>
+        <p class="result-info">Spam Classification: <span class="result-value">{{ spam_prediction }}</span></p>
+    </div>
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>

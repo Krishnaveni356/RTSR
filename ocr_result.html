@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OCR Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f3f3f3;
+        }
+        .jumbotron {
+            background-color: #bdcdd7;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1>OCR Result</h1>
+        <p>Enhance your text analysis, and OCR!</p>
+    </div>
+    <div class="alert alert-success">
+        <h3>Extracted Text:</h3>
+        <pre>{{ extracted_text }}</pre>
+    </div>
+    <div class="alert alert-info">
+        <h3>Spam Classification Result:</h3>
+        <p>{{ spam_prediction }}</p>
+    </div>
+    <div class="alert alert-warning">
+        <h3>Sentiment Analysis Result:</h3>
+        <p>Polarity: {{ sentiment_polarity }}</p>
+        <p>Subjectivity: {{ sentiment_subjectivity }}</p>
+    </div>
+</div>
+</body>
+</html>
